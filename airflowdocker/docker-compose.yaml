@@ -80,8 +80,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/spark_project
-    - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+    - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/spark_project
+    - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
     - /var/run/docker.sock:/var/run/docker.sock
   depends_on:
     &airflow-common-depends-on

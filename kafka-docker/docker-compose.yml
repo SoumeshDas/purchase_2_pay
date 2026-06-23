@@ -6,7 +6,7 @@ services:
     hostname: kafka
 
     volumes:
-      - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+      - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
 
     ports:
       - "9092:9092"

@@ -1,13 +1,20 @@
-# Parquet files
-*.parquet
+# Logs
+*.log
+logs/
+**/logs/
 
-# Spark output folders
+# Airflow logs
+airflow/logs/
+airflow-docker/logs/
+
+# Spark output
 output/
 checkpoint/
+*.parquet
 
 # Spark temporary files
-*.crc
 _SUCCESS
+*.crc
 
 # Python
 __pycache__/
@@ -16,5 +23,5 @@ __pycache__/
 # VS Code
 .vscode/
 
-# Environment files
+# Environment
 .env

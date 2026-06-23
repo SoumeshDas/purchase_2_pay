@@ -6,7 +6,7 @@ services:
     hostname: spark-master
 
     volumes:
-      - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+      - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
 
     environment:
       - JAVA_HOME=/opt/java/openjdk
@@ -26,7 +26,7 @@ services:
     hostname: spark-worker
 
     volumes:
-      - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+      - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
 
     environment:
       - JAVA_HOME=/opt/java/openjdk

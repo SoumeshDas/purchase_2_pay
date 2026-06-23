@@ -1,0 +1,13 @@
+{
+    "python.defaultInterpreterPath": "/home/soumeshchnandradas/spark-venv/bin/python",
+    "python.analysis.extraPaths": [
+        "/home/soumeshchnandradas/spark-venv/lib/python3.12/site-packages"
+    ],
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
+}

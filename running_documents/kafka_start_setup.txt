@@ -1,0 +1,68 @@
+✅ Step 1 — Create Kafka docker-compose.yaml
+
+In a separate folder (recommended):
+
+mkdir ~/kafka-docker
+cd ~/kafka-docker
+
+Create file:
+
+nano docker-compose.yaml
+📄 Paste this (working config)
+version: '3'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+▶️ Step 2 — Run Kafka (from VS Code terminal)
+docker compose up -d
+🔍 Step 3 — Verify Kafka is running
+docker ps
+
+You should see:
+
+kafka
+zookeeper
+🧪 Step 4 — Test Kafka
+Create topic:
+docker exec -it kafka kafka-topics \
+--create \
+--topic test-topic \
+--bootstrap-server localhost:9092 \
+--partitions 1 \
+--replication-factor 1
+Send data:
+docker exec -it kafka kafka-console-producer \
+--topic test-topic \
+--bootstrap-server localhost:9092
+
+Type:
+
+hello
+world
+
+Read data:
+docker exec -it kafka kafka-console-consumer \
+--topic test-topic \
+--from-beginning \
+
+✅ How to exit (get back to normal prompt)
+Press:
+Ctrl + C
+--bootstrap-server localhost:9092

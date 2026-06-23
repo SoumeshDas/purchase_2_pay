@@ -1,0 +1,20 @@
+# Parquet files
+*.parquet
+
+# Spark output folders
+output/
+checkpoint/
+
+# Spark temporary files
+*.crc
+_SUCCESS
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Environment files
+.env

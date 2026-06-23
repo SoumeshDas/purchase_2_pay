@@ -1,0 +1,43 @@
+[2026-06-17T14:54:32.977+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-17T14:54:33.002+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_cluster_run_sales_etl.run_spark manual__2026-06-17T14:54:28.829253+00:00 [queued]>
+[2026-06-17T14:54:33.007+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_cluster_run_sales_etl.run_spark manual__2026-06-17T14:54:28.829253+00:00 [queued]>
+[2026-06-17T14:54:33.008+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-17T14:54:33.018+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark> on 2026-06-17 14:54:28.829253+00:00
+[2026-06-17T14:54:33.024+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=179) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-06-17T14:54:33.025+0000] {standard_task_runner.py:64} INFO - Started process 181 to run task
+[2026-06-17T14:54:33.025+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'spark_cluster_run_sales_etl', 'run_spark', 'manual__2026-06-17T14:54:28.829253+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/spark_cluster_run_sales_etl.py', '--cfg-path', '/tmp/tmpidd_xdob']
+[2026-06-17T14:54:33.027+0000] {standard_task_runner.py:91} INFO - Job 12: Subtask run_spark
+[2026-06-17T14:54:33.060+0000] {task_command.py:426} INFO - Running <TaskInstance: spark_cluster_run_sales_etl.run_spark manual__2026-06-17T14:54:28.829253+00:00 [running]> on host 0cb6b2c0e1fb
+[2026-06-17T14:54:33.323+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='spark_cluster_run_sales_etl' AIRFLOW_CTX_TASK_ID='run_spark' AIRFLOW_CTX_EXECUTION_DATE='2026-06-17T14:54:28.829253+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-17T14:54:28.829253+00:00'
+[2026-06-17T14:54:33.326+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-17T14:54:33.327+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-17T14:54:33.328+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n                        docker exec -i spark-master                         /opt/spark/bin/spark-submit                         --master spark://spark-master:7077                         --total-executor-cores 1                         --executor-memory 512m                         /jobs/scripts/sales_etl.py\n                    ']
+[2026-06-17T14:54:33.348+0000] {subprocess.py:86} INFO - Output:
+[2026-06-17T14:54:38.849+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-06-17T14:54:41.100+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-17T14:54:41.100+0000] {subprocess.py:93} INFO -   File "/jobs/scripts/sales_etl.py", line 4, in <module>
+[2026-06-17T14:54:41.100+0000] {subprocess.py:93} INFO -     from delta import configure_spark_with_delta_pip
+[2026-06-17T14:54:41.100+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'delta'
+[2026-06-17T14:54:41.176+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-17T14:54:41.176+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-17T14:54:41.184+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-17T14:54:41.189+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=spark_cluster_run_sales_etl, task_id=run_spark, run_id=manual__2026-06-17T14:54:28.829253+00:00, execution_date=20260617T145428, start_date=20260617T145433, end_date=20260617T145441
+[2026-06-17T14:54:41.202+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 12 for task run_spark (Bash command failed. The command returned a non-zero exit code 1.; 181)
+[2026-06-17T14:54:41.213+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-17T14:54:41.224+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-17T14:54:41.316+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

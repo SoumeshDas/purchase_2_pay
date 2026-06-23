@@ -1,0 +1,41 @@
+services:
+
+  spark-master:
+    image: apache/spark:latest
+    container_name: spark-master
+    hostname: spark-master
+
+    volumes:
+      - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+
+    environment:
+      - JAVA_HOME=/opt/java/openjdk
+      - PATH=/opt/java/openjdk/bin:/opt/spark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.master.Master
+
+    ports:
+      - "7077:7077"
+      - "8081:8080"
+
+  spark-worker:
+    image: apache/spark:latest
+    container_name: spark-worker
+    hostname: spark-worker
+
+    volumes:
+      - /home/soumeshchnandradas/source_code/airflow_spark_test_project:/jobs
+
+    environment:
+      - JAVA_HOME=/opt/java/openjdk
+      - PATH=/opt/java/openjdk/bin:/opt/spark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+    depends_on:
+      - spark-master
+
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077

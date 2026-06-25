@@ -15,6 +15,7 @@ df = (
     .option("kafka.bootstrap.servers", "kafka:9092")
     .option("subscribe", "sales_topic")
     .option("startingOffsets", "earliest")
+    .option("failOnDataLoss", "false")
     .load()
 )
 

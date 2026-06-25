@@ -2,17 +2,18 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from datetime import datetime
 
+default_args = {
+    "owner": "soumesh",
+}
+
 with DAG(
     dag_id="purchase_2_pay_pipeline",
-    start_date=datetime(2025,1,1),
+    start_date=datetime(2026, 1, 1),
     schedule=None,
     catchup=False,
+    default_args=default_args,
+    tags=["kafka", "spark", "streaming"],
 ) as dag:
-
-    create_topic = BashOperator(
-        task_id="create_topic",
-        bash_command="python /jobs/scripts/create_sales_topic.py"
-    )
 
     produce_sales = BashOperator(
         task_id="produce_sales",
@@ -26,14 +27,25 @@ with DAG(
         """
     )
 
-    run_spark = BashOperator(
-        task_id="run_spark",
+    wait_for_stream = BashOperator(
+        task_id="wait_for_stream",
         bash_command="""
-        docker exec -i spark-master \
-        /opt/spark/bin/spark-submit \
-        --master spark://spark-master:7077 \
-        /jobs/scripts/sales_etl.py
+        sleep 15
         """
     )
 
-    create_topic >> produce_sales >> run_spark
+    soda_scan = BashOperator(
+        task_id="soda_scan",
+        bash_command="""
+        echo "Run Soda Scan here"
+        """
+    )
+
+    notify = BashOperator(
+        task_id="notify",
+        bash_command="""
+        echo "Pipeline Completed Successfully"
+        """
+    )
+
+    produce_sales >> wait_for_stream >> soda_scan >> notify

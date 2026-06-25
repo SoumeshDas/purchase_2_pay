@@ -1,7 +1,8 @@
 services:
 
   spark-master:
-    image: apache/spark:latest
+    build: .
+    image: spark-custom:latest
     container_name: spark-master
     hostname: spark-master
 
@@ -21,7 +22,8 @@ services:
       - "8081:8080"
 
   spark-worker:
-    image: apache/spark:latest
+    build: .
+    image: spark-custom:latest
     container_name: spark-worker
     hostname: spark-worker
 
@@ -39,3 +41,39 @@ services:
       /opt/spark/bin/spark-class
       org.apache.spark.deploy.worker.Worker
       spark://spark-master:7077
+
+  spark-consumer:
+    build: .
+    image: spark-custom:latest
+    container_name: spark-consumer
+    hostname: spark-consumer
+
+    volumes:
+      - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
+
+    environment:
+      - JAVA_HOME=/opt/java/openjdk
+      - PATH=/opt/java/openjdk/bin:/opt/spark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+    depends_on:
+      - spark-master
+      - spark-worker
+
+    command: >
+      /opt/spark/bin/spark-submit
+      --master spark://spark-master:7077
+      --conf spark.jars.ivy=/opt/spark/ivy
+      --packages org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.2
+      /jobs/scripts/consume_sales.py
+
+    networks:
+      - default
+      - kafka-docker_default
+
+networks:
+  default:
+    name: spark-docker_default
+
+  kafka-docker_default:
+    external: true
+    name: kafka-docker_default

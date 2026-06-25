@@ -13,7 +13,7 @@ producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
 
-for i in range(10000):
+for i in range(100):
     record = {
         "customer": f"Customer_{i%3}",
         "quantity": i * 10

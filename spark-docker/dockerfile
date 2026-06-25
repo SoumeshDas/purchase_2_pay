@@ -1,0 +1,33 @@
+FROM apache/spark:4.1.2
+
+USER root
+
+# Utilities
+RUN apt-get update && \
+    apt-get install -y curl procps && \
+    rm -rf /var/lib/apt/lists/*
+
+# Writable Ivy cache
+RUN mkdir -p /opt/spark/ivy && \
+    chown -R spark:spark /opt/spark/ivy
+
+ENV IVY_HOME=/opt/spark/ivy
+ENV SPARK_SUBMIT_OPTS="-Divy.home=/opt/spark/ivy"
+
+COPY warmup.py /tmp/
+
+# Switch to spark user
+USER spark
+
+# Download Kafka dependencies
+RUN /opt/spark/bin/spark-submit \
+    --packages org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.2 \
+    /tmp/warmup.py || true
+
+# Switch back to root
+USER root
+
+# Temporary: inspect where the JARs were downloaded
+RUN find /opt/spark/ivy -type f
+
+USER spark

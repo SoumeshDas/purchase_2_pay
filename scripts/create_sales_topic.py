@@ -1,24 +1,32 @@
-from airflow import DAG
-from airflow.operators.bash import BashOperator
-from datetime import datetime
+import os
+from kafka.admin import KafkaAdminClient, NewTopic
+from kafka.errors import TopicAlreadyExistsError
 
-default_args = {
-"owner": "soumesh",
-}
+BOOTSTRAP_SERVER = os.getenv("KAFKA_SERVER", "kafka:9092")
+TOPIC_NAME = "sales_topic"
 
-with DAG(
-dag_id="purchase_2_pay_pipeline",
-start_date=datetime(2026, 1, 1),
-schedule=None,
-catchup=False,
-default_args=default_args,
-tags=["kafka", "spark", "airflow"],
-) as dag:
+print(f"Connecting to Kafka: {BOOTSTRAP_SERVER}")
 
+admin_client = KafkaAdminClient(
+    bootstrap_servers=BOOTSTRAP_SERVER,
+    client_id="purchase2pay-admin"
+)
 
-    create_sales_topic = BashOperator(
-        task_id="create_sales_topic",
-        bash_command="""
-        python /jobs/scripts/create_sales_topic.py
-        """
+topic = NewTopic(
+    name=TOPIC_NAME,
+    num_partitions=1,
+    replication_factor=1
+)
+
+try:
+    admin_client.create_topics(
+        new_topics=[topic],
+        validate_only=False
     )
+    print(f"✅ Topic '{TOPIC_NAME}' created successfully.")
+
+except TopicAlreadyExistsError:
+    print(f"ℹ️ Topic '{TOPIC_NAME}' already exists.")
+
+finally:
+    admin_client.close()

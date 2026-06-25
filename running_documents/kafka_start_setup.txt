@@ -66,3 +66,176 @@ docker exec -it kafka kafka-console-consumer \
 Press:
 Ctrl + C
 --bootstrap-server localhost:9092
+
+One-liner
+cd ~/kafka-docker && docker compose up -d && \
+cd ~/spark-docker && docker compose up -d && \
+cd ~/airflowdocker && docker compose up -d
+Verify everything
+docker ps
+
+You should see:
+
+kafka
+
+spark-master
+spark-worker
+
+airflow-webserver
+airflow-scheduler
+airflow-worker
+airflow-triggerer
+
+postgres
+redis
+Useful URLs
+Airflow UI  : http://localhost:8080
+Spark UI    : http://localhost:8081
+Kafka       : localhost:29092 (host)
+Kafka       : kafka:9092 (containers)
+
+For your current setup, my normal morning startup sequence would be:
+
+cd ~/kafka-docker && docker compose up -d
+
+cd ~/spark-docker && docker compose up -d
+
+docker network connect spark-docker_default kafka || true
+
+cd ~/airflowdocker && docker compose up -d
+
+docker ps
+
+================================
+
+1. Containers Healthy
+docker ps
+
+Expected:
+
+kafka
+spark-master
+spark-worker
+airflow-webserver
+airflow-scheduler
+airflow-worker
+airflow-triggerer
+postgres
+redis
+
+
+2. Kafka Network Membership
+docker inspect kafka --format='{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{end}}'
+
+Expected:
+
+kafka-docker_default spark-docker_default
+
+If spark-docker_default is missing:
+
+docker network connect spark-docker_default kafka
+
+3. Spark → Kafka DNS Resolution
+
+docker exec -it spark-master getent hosts kafka
+
+Expected:
+
+172.x.x.x    kafka
+
+If nothing returns, networking is broken.
+
+4. Spark → Kafka Port Connectivity
+
+Inside Spark:
+
+docker exec -it spark-master bash
+
+Then:
+
+python -c "import socket; print(socket.gethostbyname('kafka'))"
+
+Expected:
+
+172.x.x.x
+
+Exit:
+
+exit
+5. Kafka Topic Exists
+docker exec kafka \
+/opt/kafka/bin/kafka-topics.sh \
+--bootstrap-server localhost:9092 \
+--list
+
+Expected:
+
+sales_topic
+6. Spark Cluster Healthy
+
+Open:
+
+http://localhost:8081
+
+You should see:
+
+Workers: 1
+spark-worker
+
+Or run:
+
+docker logs spark-master --tail 20
+7. Airflow Healthy
+
+Open:
+
+http://localhost:8080
+
+Verify:
+
+sales_order_pipeline
+
+is visible.
+
+8. Host Kafka Listener
+nc -vz localhost 29092
+
+Expected:
+
+Connection succeeded
+9. End-to-End Smoke Test
+
+Produce data:
+
+python ~/source_code/purchase_2_pay/scripts/produce_sales.py
+
+Verify Parquet files:
+
+ls -l ~/source_code/purchase_2_pay/output/sales_stream
+Single Command Summary
+
+Run and paste output:
+
+docker ps
+
+docker inspect kafka --format='{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{end}}'
+
+docker exec spark-master getent hosts kafka
+
+docker exec kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+test spark code directly throgh docker not in local
+
+example below
+================
+docker exec -it spark-master \
+spark-submit \
+--master spark://spark-master:7077 \
+/jobs/scripts/sales_etl.py
+
+-- once it is scussefull then switch to airflow job mounting is alread done then all the
+ local scipts are mounted over there .
+
+ successfull
+
+ ==============================

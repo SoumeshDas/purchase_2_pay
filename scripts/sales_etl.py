@@ -1,24 +1,12 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import IntegerType
 import pyspark.sql.functions as F
-from delta import configure_spark_with_delta_pip
-import os 
+import os
 
-builder = (
+spark = (
     SparkSession.builder
     .appName("sales-order-view")
-    .config(
-        "spark.sql.extensions",
-        "io.delta.sql.DeltaSparkSessionExtension"
-    )
-    .config(
-        "spark.sql.catalog.spark_catalog",
-        "org.apache.spark.sql.delta.catalog.DeltaCatalog"
-    )
+    .getOrCreate()
 )
-
-
-spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
 #project_path = "/home/soumeshchnandradas/source_code/airflow_spark_test_project"
 project_path = "/jobs"

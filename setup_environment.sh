@@ -17,7 +17,7 @@ docker run --rm \
   -e KAFKA_SERVER=kafka:9092 \
   -v "$PROJECT_ROOT":/jobs \
   kafka-python-docker:1.0 \
-  python /jobs/scripts/create_sales_topic.py
+  python /jobs/scripts/utilities/create_sales_topic.py
 
 echo "Starting Spark..."
 cd "$PROJECT_ROOT/spark-docker"

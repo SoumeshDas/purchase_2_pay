@@ -64,7 +64,7 @@ services:
       --master spark://spark-master:7077
       --conf spark.jars.ivy=/opt/spark/ivy
       --packages org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.2
-      /jobs/scripts/consume_sales.py
+      /jobs/scripts/consumer/consume_sales.py
 
     networks:
       - default

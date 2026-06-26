@@ -1,0 +1,4 @@
+data_source parquet_data:
+  type: duckdb
+  path: /jobs/output/quality.duckdb
+  read_only: true

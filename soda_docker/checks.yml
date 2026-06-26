@@ -1,0 +1,9 @@
+checks for sales:
+
+  - row_count > 0
+
+  - missing_count(customer) = 0
+
+  - missing_count(quantity) = 0
+
+  - min(quantity) > 0

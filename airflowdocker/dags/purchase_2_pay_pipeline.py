@@ -55,18 +55,43 @@ with DAG(
         """
     )
 
+    load_to_duckdb = BashOperator(
+        task_id="load_to_duckdb",
+
+        bash_command=f"""
+        docker run --rm \
+        -v {PROJECT_ROOT}:/jobs \
+        soda-custom:latest \
+        python /jobs/scripts/utilities/load_bronze_to_duckdb.py
+        """
+    )
+
     soda_scan = BashOperator(
         task_id="soda_scan",
-        bash_command="""
-        echo "Run Soda Scan here"
+
+        bash_command=f"""
+        docker run --rm \
+        -v {PROJECT_ROOT}:/jobs \
+        soda-custom:latest \
+        soda scan \
+        -d parquet_data \
+        -c /jobs/soda_docker/configuration.yml \
+        /jobs/soda_docker/checks.yml
         """
     )
 
     notify = BashOperator(
         task_id="notify",
-        bash_command="""
-        echo "Pipeline Completed Successfully"
+
+        bash_command=f"""
+        python3 {PROJECT_ROOT}/scripts/utilities/send_mail.py
         """
     )
 
-    create_topic >> produce_sales >> wait_for_stream >> soda_scan >> notify
+    (
+    create_topic
+    >> produce_sales
+    >> wait_for_stream
+    >> load_to_duckdb
+    >> soda_scan
+    >> notify)

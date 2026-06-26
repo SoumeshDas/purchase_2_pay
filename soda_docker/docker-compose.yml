@@ -1,0 +1,11 @@
+services:
+
+  soda:
+    build: .
+    image: soda-custom:latest
+    container_name: soda
+
+    volumes:
+      - /home/soumeshchnandradas/source_code/purchase_2_pay_solution:/jobs
+
+    tty: true

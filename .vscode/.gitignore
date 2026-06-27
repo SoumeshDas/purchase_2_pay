@@ -1,2 +1,18 @@
-# GitShift personal account configuration
-github-accounts.json
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+*.pyc
+
+.env
+
+.idea/
+.vscode/
+
+output/
+logs/
+
+*.duckdb
+
+*.parquet

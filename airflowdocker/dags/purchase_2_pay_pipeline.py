@@ -67,24 +67,36 @@ with DAG(
     )
 
     soda_scan = BashOperator(
-        task_id="soda_scan",
-
+        task_id="run_soda",
         bash_command=f"""
         docker run --rm \
         -v {PROJECT_ROOT}:/jobs \
         soda-custom:latest \
-        soda scan \
-        -d parquet_data \
-        -c /jobs/soda_docker/configuration.yml \
-        /jobs/soda_docker/checks.yml
+        python /jobs/scripts/quality/run_soda.py
         """
     )
 
     notify = BashOperator(
         task_id="notify",
-
+        trigger_rule="all_done",
         bash_command=f"""
-        python3 {PROJECT_ROOT}/scripts/utilities/send_mail.py
+        docker run --rm \
+        -v {PROJECT_ROOT}:/jobs \
+        -e GMAIL_USER=$GMAIL_USER \
+        -e GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD \
+        -e TO_EMAIL=admin@omgananayaka.in \
+        soda-custom:latest \
+        python /jobs/scripts/utilities/send_mail.py
+        """
+    )
+
+    validate_pipeline = BashOperator(
+        task_id="validate_pipeline",
+        bash_command=f"""
+        docker run --rm \
+        -v {PROJECT_ROOT}:/jobs \
+        soda-custom:latest \
+        python /jobs/scripts/quality/validate_pipeline.py
         """
     )
 
@@ -94,4 +106,6 @@ with DAG(
     >> wait_for_stream
     >> load_to_duckdb
     >> soda_scan
-    >> notify)
+    >> notify
+    >> validate_pipeline
+    )

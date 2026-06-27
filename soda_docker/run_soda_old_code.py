@@ -3,32 +3,29 @@ import sys
 import os
 from datetime import datetime
 
-PROJECT_ROOT="/jobs"
+PROJECT_ROOT = "/jobs"
 
-LOG_DIR=f"{PROJECT_ROOT}/soda_docker/logs"
+LOG_DIR = f"{PROJECT_ROOT}/soda_docker/logs"
 
-os.makedirs(LOG_DIR,exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
 
-timestamp=datetime.now().strftime("%Y%m%d_%H%M%S")
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-log_file=f"{LOG_DIR}/soda_scan_{timestamp}.log"
+log_file = f"{LOG_DIR}/soda_scan_{timestamp}.log"
 
-cmd=[
+cmd = [
     "soda",
     "scan",
-    "-d","parquet_data",
-    "-c",f"{PROJECT_ROOT}/soda_docker/configuration.yml",
-    f"{PROJECT_ROOT}/soda_docker/checks.yml"
+    "-d",
+    "parquet_data",
+    "-c",
+    f"{PROJECT_ROOT}/soda_docker/configuration.yml",
+    f"{PROJECT_ROOT}/soda_docker/checks.yml",
 ]
 
-with open(log_file,"w") as log:
+with open(log_file, "w") as log:
 
-    result=subprocess.run(
-        cmd,
-        stdout=log,
-        stderr=subprocess.STDOUT,
-        text=True
-    )
+    result = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, text=True)
 
 print(f"Log saved : {log_file}")
 

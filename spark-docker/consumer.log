@@ -1,0 +1,515 @@
+spark-consumer  | WARNING: Using incubator modules: jdk.incubator.vector
+spark-consumer  | :: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+spark-consumer  | Ivy Default Cache set to: /opt/spark/ivy/cache
+spark-consumer  | The jars for the packages stored in: /opt/spark/ivy/jars
+spark-consumer  | org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+spark-consumer  | :: resolving dependencies :: org.apache.spark#spark-submit-parent-4f4b4050-e199-4282-ac8b-c371be45f85a;1.0
+spark-consumer  | 	confs: [default]
+spark-consumer  | 	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.2 in central
+spark-consumer  | 	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.2 in central
+spark-consumer  | 	found org.apache.kafka#kafka-clients;3.9.1 in central
+spark-consumer  | 	found org.lz4#lz4-java;1.8.0 in central
+spark-consumer  | 	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+spark-consumer  | 	found org.slf4j#slf4j-api;2.0.17 in central
+spark-consumer  | 	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+spark-consumer  | 	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+spark-consumer  | 	found com.google.code.findbugs#jsr305;3.0.0 in central
+spark-consumer  | 	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+spark-consumer  | 	found org.apache.commons#commons-pool2;2.12.1 in central
+spark-consumer  | :: resolution report :: resolve 729ms :: artifacts dl 31ms
+spark-consumer  | 	:: modules in use:
+spark-consumer  | 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+spark-consumer  | 	org.apache.commons#commons-pool2;2.12.1 from central in [default]
+spark-consumer  | 	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+spark-consumer  | 	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+spark-consumer  | 	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+spark-consumer  | 	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.2 from central in [default]
+spark-consumer  | 	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.2 from central in [default]
+spark-consumer  | 	org.lz4#lz4-java;1.8.0 from central in [default]
+spark-consumer  | 	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+spark-consumer  | 	org.slf4j#slf4j-api;2.0.17 from central in [default]
+spark-consumer  | 	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+spark-consumer  | 	---------------------------------------------------------------------
+spark-consumer  | 	|                  |            modules            ||   artifacts   |
+spark-consumer  | 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+spark-consumer  | 	---------------------------------------------------------------------
+spark-consumer  | 	|      default     |   11  |   0   |   0   |   0   ||   11  |   0   |
+spark-consumer  | 	---------------------------------------------------------------------
+spark-consumer  | :: retrieving :: org.apache.spark#spark-submit-parent-4f4b4050-e199-4282-ac8b-c371be45f85a
+spark-consumer  | 	confs: [default]
+spark-consumer  | 	0 artifacts copied, 11 already retrieved (0kB/25ms)
+spark-consumer  | 26/06/25 18:43:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+spark-consumer  | Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+spark-consumer  | 26/06/25 18:43:12 INFO SparkContext: Running Spark version 4.1.2
+spark-consumer  | 26/06/25 18:43:12 INFO SparkContext: OS info Linux, 6.17.0-35-generic, amd64
+spark-consumer  | 26/06/25 18:43:12 INFO SparkContext: Java version 21.0.11+10-LTS
+spark-consumer  | 26/06/25 18:43:12 INFO ResourceUtils: ==============================================================
+spark-consumer  | 26/06/25 18:43:12 INFO ResourceUtils: No custom resources configured for spark.driver.
+spark-consumer  | 26/06/25 18:43:12 INFO ResourceUtils: ==============================================================
+spark-consumer  | 26/06/25 18:43:12 INFO SparkContext: Submitted application: KafkaSalesConsumer
+spark-consumer  | 26/06/25 18:43:12 INFO SecurityManager: Changing view acls to: spark
+spark-consumer  | 26/06/25 18:43:12 INFO SecurityManager: Changing modify acls to: spark
+spark-consumer  | 26/06/25 18:43:12 INFO SecurityManager: Changing view acls groups to: spark
+spark-consumer  | 26/06/25 18:43:12 INFO SecurityManager: Changing modify acls groups to: spark
+spark-consumer  | 26/06/25 18:43:12 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY; RPC SSL disabled
+spark-consumer  | 26/06/25 18:43:12 INFO Utils: Successfully started service 'sparkDriver' on port 43985.
+spark-consumer  | 26/06/25 18:43:12 INFO SparkEnv: Registering MapOutputTracker
+spark-consumer  | 26/06/25 18:43:13 INFO SparkEnv: Registering BlockManagerMaster
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+spark-consumer  | 26/06/25 18:43:13 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+spark-consumer  | 26/06/25 18:43:13 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d19bdebf-58b5-4586-bf26-e1081d3e2eaa
+spark-consumer  | 26/06/25 18:43:13 INFO SparkEnv: Registering OutputCommitCoordinator
+spark-consumer  | 26/06/25 18:43:13 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar at spark://spark-consumer:43985/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar at spark://spark-consumer:43985/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar at spark://spark-consumer:43985/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.kafka_kafka-clients-3.9.1.jar at spark://spark-consumer:43985/jars/org.apache.kafka_kafka-clients-3.9.1.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://spark-consumer:43985/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.commons_commons-pool2-2.12.1.jar at spark://spark-consumer:43985/jars/org.apache.commons_commons-pool2-2.12.1.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar at spark://spark-consumer:43985/jars/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.lz4_lz4-java-1.8.0.jar at spark://spark-consumer:43985/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.xerial.snappy_snappy-java-1.1.10.8.jar at spark://spark-consumer:43985/jars/org.xerial.snappy_snappy-java-1.1.10.8.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.slf4j_slf4j-api-2.0.17.jar at spark://spark-consumer:43985/jars/org.slf4j_slf4j-api-2.0.17.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added JAR file:///opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-api-3.4.2.jar at spark://spark-consumer:43985/jars/org.apache.hadoop_hadoop-client-api-3.4.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar at spark://spark-consumer:43985/files/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.spark_spark-sql-kafka-0-10_2.13-4.1.2.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar at spark://spark-consumer:43985/files/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.spark_spark-token-provider-kafka-0-10_2.13-4.1.2.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar at spark://spark-consumer:43985/files/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.scala-lang.modules_scala-parallel-collections_2.13-1.2.0.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.kafka_kafka-clients-3.9.1.jar at spark://spark-consumer:43985/files/org.apache.kafka_kafka-clients-3.9.1.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.kafka_kafka-clients-3.9.1.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.kafka_kafka-clients-3.9.1.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://spark-consumer:43985/files/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/com.google.code.findbugs_jsr305-3.0.0.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.commons_commons-pool2-2.12.1.jar at spark://spark-consumer:43985/files/org.apache.commons_commons-pool2-2.12.1.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.commons_commons-pool2-2.12.1.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.commons_commons-pool2-2.12.1.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar at spark://spark-consumer:43985/files/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.hadoop_hadoop-client-runtime-3.4.2.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.lz4_lz4-java-1.8.0.jar at spark://spark-consumer:43985/files/org.lz4_lz4-java-1.8.0.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.lz4_lz4-java-1.8.0.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.xerial.snappy_snappy-java-1.1.10.8.jar at spark://spark-consumer:43985/files/org.xerial.snappy_snappy-java-1.1.10.8.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.xerial.snappy_snappy-java-1.1.10.8.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.xerial.snappy_snappy-java-1.1.10.8.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.slf4j_slf4j-api-2.0.17.jar at spark://spark-consumer:43985/files/org.slf4j_slf4j-api-2.0.17.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.slf4j_slf4j-api-2.0.17.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.slf4j_slf4j-api-2.0.17.jar
+spark-consumer  | 26/06/25 18:43:13 INFO SparkContext: Added file file:///opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-api-3.4.2.jar at spark://spark-consumer:43985/files/org.apache.hadoop_hadoop-client-api-3.4.2.jar with timestamp 1782412992683
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Copying /opt/spark/ivy/jars/org.apache.hadoop_hadoop-client-api-3.4.2.jar to /tmp/spark-41d09716-1673-4250-b425-0ce5fa4271ff/userFiles-9b6f13c7-7bdc-491f-aa0a-12035a1d1187/org.apache.hadoop_hadoop-client-api-3.4.2.jar
+spark-consumer  | 26/06/25 18:43:13 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+spark-consumer  | 26/06/25 18:43:13 INFO ResourceProfile: Limiting resource is cpu
+spark-consumer  | 26/06/25 18:43:13 INFO ResourceProfileManager: Added ResourceProfile id: 0
+spark-consumer  | 26/06/25 18:43:13 INFO SecurityManager: Changing view acls to: spark
+spark-consumer  | 26/06/25 18:43:13 INFO SecurityManager: Changing modify acls to: spark
+spark-consumer  | 26/06/25 18:43:13 INFO SecurityManager: Changing view acls groups to: spark
+spark-consumer  | 26/06/25 18:43:13 INFO SecurityManager: Changing modify acls groups to: spark
+spark-consumer  | 26/06/25 18:43:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY; RPC SSL disabled
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+spark-consumer  | 26/06/25 18:43:13 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.3:7077 after 31 ms (0 ms spent in bootstraps)
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260625184313-0000
+spark-consumer  | 26/06/25 18:43:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38185.
+spark-consumer  | 26/06/25 18:43:13 INFO NettyBlockTransferService: Server created on spark-consumer:38185
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, spark-consumer, 38185, None)
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManagerMasterEndpoint: Registering block manager spark-consumer:38185 with 434.4 MiB RAM, BlockManagerId(driver, spark-consumer, 38185, None)
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, spark-consumer, 38185, None)
+spark-consumer  | 26/06/25 18:43:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, spark-consumer, 38185, None)
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260625184313-0000/0 on worker-20260625184310-172.20.0.4-45735 (172.20.0.4:45735) with 6 core(s)
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneSchedulerBackend: Granted executor ID app-20260625184313-0000/0 on hostPort 172.20.0.4:45735 with 6 core(s), 1024.0 MiB RAM
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+spark-consumer  | 26/06/25 18:43:13 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260625184313-0000/0 is now RUNNING
+spark-consumer  | 26/06/25 18:43:16 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.4:34096) with ID 0, ResourceProfileId 0
+spark-consumer  | 26/06/25 18:43:16 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.4:38713 with 434.4 MiB RAM, BlockManagerId(0, 172.20.0.4, 38713, None)
+spark-consumer  | 26/06/25 18:43:16 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+spark-consumer  | 26/06/25 18:43:16 INFO SharedState: Warehouse path is 'file:/opt/spark/work-dir/spark-warehouse'.
+spark-consumer  | 26/06/25 18:43:32 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+spark-consumer  | 26/06/25 18:43:32 INFO ResolveWriteToStream: Checkpoint root /jobs/checkpoints/sales_stream resolved to file:/jobs/checkpoints/sales_stream.
+spark-consumer  | 26/06/25 18:43:32 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+spark-consumer  | 26/06/25 18:43:32 INFO MicroBatchExecution: Starting [id = ff218d8e-0546-4fc0-bcaa-19be308a5732, runId = 0ed929b4-084d-45d4-ac4e-cbd8317a1d83]. Use file:/jobs/checkpoints/sales_stream to store the query checkpoint.
+spark-consumer  | 26/06/25 18:43:32 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@651c7755] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@475b6866]
+spark-consumer  | 26/06/25 18:43:32 INFO MicroBatchExecution: Finish initializing with logical plan:
+spark-consumer  | ~WriteToMicroBatchDataSourceV1 FileSink[file:/jobs/output/sales_stream], ff218d8e-0546-4fc0-bcaa-19be308a5732, [path=/jobs/output/sales_stream, checkpointLocation=/jobs/checkpoints/sales_stream], Append
+spark-consumer  | +- ~Project [data#15.customer AS customer#16, data#15.quantity AS quantity#17]
+spark-consumer  |    +- ~Project [from_json(StructField(customer,StringType,true), StructField(quantity,IntegerType,true), json_string#14, Some(Etc/UTC), false) AS data#15]
+spark-consumer  |       +- ~Project [cast(value#8 as string) AS json_string#14]
+spark-consumer  |          +- ~StreamingDataSourceV2ScanRelation[key#7, value#8, topic#9, partition#10, offset#11L, timestamp#12, timestampType#13] KafkaTable
+spark-consumer  | 
+spark-consumer  | 26/06/25 18:43:32 INFO OffsetSeqLog: BatchIds found from listing: 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770, 8771
+spark-consumer  | 26/06/25 18:43:32 INFO OffsetSeqLog: Getting latest batch 8771
+spark-consumer  | 26/06/25 18:43:32 INFO CommitLog: BatchIds found from listing: 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770
+spark-consumer  | 26/06/25 18:43:32 INFO CommitLog: Getting latest batch 8770
+spark-consumer  | 26/06/25 18:43:33 INFO OffsetSeqLog: BatchIds found from listing: 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770, 8771
+spark-consumer  | 26/06/25 18:43:33 INFO OffsetSeqLog: Getting latest batch 8771
+spark-consumer  | 26/06/25 18:43:33 INFO OffsetSeqLog: BatchIds found from listing: 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770, 8771
+spark-consumer  | 26/06/25 18:43:33 INFO OffsetSeqLog: Getting latest batch 8771
+spark-consumer  | 26/06/25 18:43:33 INFO CommitLog: BatchIds found from listing: 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770
+spark-consumer  | 26/06/25 18:43:33 INFO CommitLog: Getting latest batch 8770
+spark-consumer  | 26/06/25 18:43:33 INFO MicroBatchExecution: Resuming at batch 8771 with committed offsets {KafkaV2[Subscribe[sales_topic]]: {"sales_topic":{"0":10293}}} and available offsets {KafkaV2[Subscribe[sales_topic]]: {"sales_topic":{"0":9494}}}
+spark-consumer  | 26/06/25 18:43:33 INFO MicroBatchExecution: Stream started from {KafkaV2[Subscribe[sales_topic]]: {"sales_topic":{"0":10293}}}
+spark-consumer  | 26/06/25 18:43:33 INFO FileStreamSinkLog: BatchIds found from listing: 8172, 8173, 8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194, 8195, 8196, 8197, 8198, 8199, 8200, 8201, 8202, 8203, 8204, 8205, 8206, 8207, 8208, 8209, 8210, 8211, 8212, 8213, 8214, 8215, 8216, 8217, 8218, 8219, 8220, 8221, 8222, 8223, 8224, 8225, 8226, 8227, 8228, 8229, 8230, 8231, 8232, 8233, 8234, 8235, 8236, 8237, 8238, 8239, 8240, 8241, 8242, 8243, 8244, 8245, 8246, 8247, 8248, 8249, 8250, 8251, 8252, 8253, 8254, 8255, 8256, 8257, 8258, 8259, 8260, 8261, 8262, 8263, 8264, 8265, 8266, 8267, 8268, 8269, 8270, 8271, 8272, 8273, 8274, 8275, 8276, 8277, 8278, 8279, 8280, 8281, 8282, 8283, 8284, 8285, 8286, 8287, 8288, 8289, 8290, 8291, 8292, 8293, 8294, 8295, 8296, 8297, 8298, 8299, 8300, 8301, 8302, 8303, 8304, 8305, 8306, 8307, 8308, 8309, 8310, 8311, 8312, 8313, 8314, 8315, 8316, 8317, 8318, 8319, 8320, 8321, 8322, 8323, 8324, 8325, 8326, 8327, 8328, 8329, 8330, 8331, 8332, 8333, 8334, 8335, 8336, 8337, 8338, 8339, 8340, 8341, 8342, 8343, 8344, 8345, 8346, 8347, 8348, 8349, 8350, 8351, 8352, 8353, 8354, 8355, 8356, 8357, 8358, 8359, 8360, 8361, 8362, 8363, 8364, 8365, 8366, 8367, 8368, 8369, 8370, 8371, 8372, 8373, 8374, 8375, 8376, 8377, 8378, 8379, 8380, 8381, 8382, 8383, 8384, 8385, 8386, 8387, 8388, 8389, 8390, 8391, 8392, 8393, 8394, 8395, 8396, 8397, 8398, 8399, 8400, 8401, 8402, 8403, 8404, 8405, 8406, 8407, 8408, 8409, 8410, 8411, 8412, 8413, 8414, 8415, 8416, 8417, 8418, 8419, 8420, 8421, 8422, 8423, 8424, 8425, 8426, 8427, 8428, 8429, 8430, 8431, 8432, 8433, 8434, 8435, 8436, 8437, 8438, 8439, 8440, 8441, 8442, 8443, 8444, 8445, 8446, 8447, 8448, 8449, 8450, 8451, 8452, 8453, 8454, 8455, 8456, 8457, 8458, 8459, 8460, 8461, 8462, 8463, 8464, 8465, 8466, 8467, 8468, 8469, 8470, 8471, 8472, 8473, 8474, 8475, 8476, 8477, 8478, 8479, 8480, 8481, 8482, 8483, 8484, 8485, 8486, 8487, 8488, 8489, 8490, 8491, 8492, 8493, 8494, 8495, 8496, 8497, 8498, 8499, 8500, 8501, 8502, 8503, 8504, 8505, 8506, 8507, 8508, 8509, 8510, 8511, 8512, 8513, 8514, 8515, 8516, 8517, 8518, 8519, 8520, 8521, 8522, 8523, 8524, 8525, 8526, 8527, 8528, 8529, 8530, 8531, 8532, 8533, 8534, 8535, 8536, 8537, 8538, 8539, 8540, 8541, 8542, 8543, 8544, 8545, 8546, 8547, 8548, 8549, 8550, 8551, 8552, 8553, 8554, 8555, 8556, 8557, 8558, 8559, 8560, 8561, 8562, 8563, 8564, 8565, 8566, 8567, 8568, 8569, 8570, 8571, 8572, 8573, 8574, 8575, 8576, 8577, 8578, 8579, 8580, 8581, 8582, 8583, 8584, 8585, 8586, 8587, 8588, 8589, 8590, 8591, 8592, 8593, 8594, 8595, 8596, 8597, 8598, 8599, 8600, 8601, 8602, 8603, 8604, 8605, 8606, 8607, 8608, 8609, 8610, 8611, 8612, 8613, 8614, 8615, 8616, 8617, 8618, 8619, 8620, 8621, 8622, 8623, 8624, 8625, 8626, 8627, 8628, 8629, 8630, 8631, 8632, 8633, 8634, 8635, 8636, 8637, 8638, 8639, 8640, 8641, 8642, 8643, 8644, 8645, 8646, 8647, 8648, 8649, 8650, 8651, 8652, 8653, 8654, 8655, 8656, 8657, 8658, 8659, 8660, 8661, 8662, 8663, 8664, 8665, 8666, 8667, 8668, 8669, 8670, 8671, 8672, 8673, 8674, 8675, 8676, 8677, 8678, 8679, 8680, 8681, 8682, 8683, 8684, 8685, 8686, 8687, 8688, 8689, 8690, 8691, 8692, 8693, 8694, 8695, 8696, 8697, 8698, 8699, 8700, 8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708, 8709, 8710, 8711, 8712, 8713, 8714, 8715, 8716, 8717, 8718, 8719, 8720, 8721, 8722, 8723, 8724, 8725, 8726, 8727, 8728, 8729, 8730, 8731, 8732, 8733, 8734, 8735, 8736, 8737, 8738, 8739, 8740, 8741, 8742, 8743, 8744, 8745, 8746, 8747, 8748, 8749, 8750, 8751, 8752, 8753, 8754, 8755, 8756, 8757, 8758, 8759, 8760, 8761, 8762, 8763, 8764, 8765, 8766, 8767, 8768, 8769, 8770
+spark-consumer  | 26/06/25 18:43:33 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+spark-consumer  | 26/06/25 18:43:33 INFO CodeGenerator: Code generated in 172.499547 ms
+spark-consumer  | 26/06/25 18:43:33 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+spark-consumer  | 26/06/25 18:43:33 ERROR FileFormatWriter: Aborting job 8fe8378d-826a-445d-9e46-cb065f3505e7.
+spark-consumer  | org.apache.spark.sql.kafka010.KafkaIllegalStateException: Some data may have been lost because they are not available in Kafka any more;
+spark-consumer  | either the data was aged out by Kafka or the topic may have been deleted before all the data in the
+spark-consumer  | topic was processed.
+spark-consumer  | If you don't want your streaming query to fail on such cases, set the source option failOnDataLoss to false.
+spark-consumer  | Reason: Partition sales_topic-0 offset was changed from 10293 to 9494.
+spark-consumer  | This could be either 1) a user error that the start offset is set beyond available offset when starting query, or 2) the kafka topic-partition is deleted and re-created.
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaExceptions$.partitionOffsetChanged(KafkaExceptions.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$10(KafkaOffsetReader.scala:250)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.reportDataLoss(KafkaMicroBatchStream.scala:444)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1$adapted(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$9(KafkaOffsetReader.scala:250)
+spark-consumer  | 	at scala.collection.immutable.List.map(List.scala:236)
+spark-consumer  | 	at scala.collection.immutable.List.map(List.scala:79)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.getOffsetRangesFromResolvedOffsets(KafkaOffsetReader.scala:241)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.planInputPartitions(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions$lzycompute(MicroBatchScanExec.scala:51)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions(MicroBatchScanExec.scala:50)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.$anonfun$partitions$3(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 	at scala.Option.getOrElse(Option.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions$(DataSourceV2ScanExecBase.scala:66)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.partitions(MicroBatchScanExec.scala:31)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD$lzycompute(MicroBatchScanExec.scala:56)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD(MicroBatchScanExec.scala:55)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute(DataSourceV2ScanExecBase.scala:187)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute$(DataSourceV2ScanExecBase.scala:185)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.doExecute(MicroBatchScanExec.scala:31)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.ProjectExec.doExecute(basicPhysicalOperators.scala:98)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:533)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:460)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:504)
+spark-consumer  | 	at org.apache.spark.sql.execution.ProjectExec.inputRDDs(basicPhysicalOperators.scala:51)
+spark-consumer  | 	at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:763)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at org.apache.spark.util.Utils$.getTryWithCallerStacktrace(Utils.scala:1453)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$1(FileFormatWriter.scala:228)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:270)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:211)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:192)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.sinks.FileStreamSink.addBatch(FileStreamSink.scala:178)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$19(MicroBatchExecution.scala:1074)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:177)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:285)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:139)
+spark-consumer  | 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:139)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:308)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:138)
+spark-consumer  | 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:92)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:250)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$18(MicroBatchExecution.scala:1065)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runBatch(MicroBatchExecution.scala:1065)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$executeOneBatch$2(MicroBatchExecution.scala:516)
+spark-consumer  | 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.executeOneBatch(MicroBatchExecution.scala:481)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1$adapted(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch(TriggerExecutor.scala:40)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch$(TriggerExecutor.scala:38)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.runOneBatch(TriggerExecutor.scala:71)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.execute(TriggerExecutor.scala:83)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:347)
+spark-consumer  | 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+spark-consumer  | 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.org$apache$spark$sql$execution$streaming$runtime$StreamExecution$$runStream(StreamExecution.scala:307)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution$$anon$1.run(StreamExecution.scala:230)
+spark-consumer  | 	Suppressed: org.apache.spark.util.Utils$OriginalTryStackTraceException: Full stacktrace of original doTryWithCallerStacktrace caller
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaExceptions$.partitionOffsetChanged(KafkaExceptions.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$10(KafkaOffsetReader.scala:250)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.reportDataLoss(KafkaMicroBatchStream.scala:444)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1$adapted(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$9(KafkaOffsetReader.scala:250)
+spark-consumer  | 		at scala.collection.immutable.List.map(List.scala:236)
+spark-consumer  | 		at scala.collection.immutable.List.map(List.scala:79)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.getOffsetRangesFromResolvedOffsets(KafkaOffsetReader.scala:241)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.planInputPartitions(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions$lzycompute(MicroBatchScanExec.scala:51)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions(MicroBatchScanExec.scala:50)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.$anonfun$partitions$3(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 		at scala.Option.getOrElse(Option.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions$(DataSourceV2ScanExecBase.scala:66)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.partitions(MicroBatchScanExec.scala:31)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD$lzycompute(MicroBatchScanExec.scala:56)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD(MicroBatchScanExec.scala:55)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute(DataSourceV2ScanExecBase.scala:187)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute$(DataSourceV2ScanExecBase.scala:185)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.doExecute(MicroBatchScanExec.scala:31)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 		at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 		at org.apache.spark.sql.execution.ProjectExec.doExecute(basicPhysicalOperators.scala:98)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 		at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:533)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:461)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:460)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:504)
+spark-consumer  | 		at org.apache.spark.sql.execution.ProjectExec.inputRDDs(basicPhysicalOperators.scala:51)
+spark-consumer  | 		at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:763)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		... 44 more
+spark-consumer  | 26/06/25 18:43:34 ERROR MicroBatchExecution: Query [id = ff218d8e-0546-4fc0-bcaa-19be308a5732, runId = 0ed929b4-084d-45d4-ac4e-cbd8317a1d83] terminated with error
+spark-consumer  | org.apache.spark.sql.kafka010.KafkaIllegalStateException: Some data may have been lost because they are not available in Kafka any more;
+spark-consumer  | either the data was aged out by Kafka or the topic may have been deleted before all the data in the
+spark-consumer  | topic was processed.
+spark-consumer  | If you don't want your streaming query to fail on such cases, set the source option failOnDataLoss to false.
+spark-consumer  | Reason: Partition sales_topic-0 offset was changed from 10293 to 9494.
+spark-consumer  | This could be either 1) a user error that the start offset is set beyond available offset when starting query, or 2) the kafka topic-partition is deleted and re-created.
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaExceptions$.partitionOffsetChanged(KafkaExceptions.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$10(KafkaOffsetReader.scala:250)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.reportDataLoss(KafkaMicroBatchStream.scala:444)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1$adapted(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$9(KafkaOffsetReader.scala:250)
+spark-consumer  | 	at scala.collection.immutable.List.map(List.scala:236)
+spark-consumer  | 	at scala.collection.immutable.List.map(List.scala:79)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.getOffsetRangesFromResolvedOffsets(KafkaOffsetReader.scala:241)
+spark-consumer  | 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.planInputPartitions(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions$lzycompute(MicroBatchScanExec.scala:51)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions(MicroBatchScanExec.scala:50)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.$anonfun$partitions$3(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 	at scala.Option.getOrElse(Option.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions$(DataSourceV2ScanExecBase.scala:66)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.partitions(MicroBatchScanExec.scala:31)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD$lzycompute(MicroBatchScanExec.scala:56)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD(MicroBatchScanExec.scala:55)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute(DataSourceV2ScanExecBase.scala:187)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute$(DataSourceV2ScanExecBase.scala:185)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.doExecute(MicroBatchScanExec.scala:31)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.ProjectExec.doExecute(basicPhysicalOperators.scala:98)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:533)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:460)
+spark-consumer  | 	at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:504)
+spark-consumer  | 	at org.apache.spark.sql.execution.ProjectExec.inputRDDs(basicPhysicalOperators.scala:51)
+spark-consumer  | 	at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:763)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 	at org.apache.spark.util.Utils$.getTryWithCallerStacktrace(Utils.scala:1453)
+spark-consumer  | 	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$1(FileFormatWriter.scala:228)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:270)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:211)
+spark-consumer  | 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:192)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.sinks.FileStreamSink.addBatch(FileStreamSink.scala:178)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$19(MicroBatchExecution.scala:1074)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:177)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:285)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:139)
+spark-consumer  | 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+spark-consumer  | 	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:139)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:308)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:138)
+spark-consumer  | 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:92)
+spark-consumer  | 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:250)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$18(MicroBatchExecution.scala:1065)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runBatch(MicroBatchExecution.scala:1065)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$executeOneBatch$2(MicroBatchExecution.scala:516)
+spark-consumer  | 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.executeOneBatch(MicroBatchExecution.scala:481)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1$adapted(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch(TriggerExecutor.scala:40)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch$(TriggerExecutor.scala:38)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.runOneBatch(TriggerExecutor.scala:71)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.execute(TriggerExecutor.scala:83)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:461)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:347)
+spark-consumer  | 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+spark-consumer  | 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.org$apache$spark$sql$execution$streaming$runtime$StreamExecution$$runStream(StreamExecution.scala:307)
+spark-consumer  | 	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution$$anon$1.run(StreamExecution.scala:230)
+spark-consumer  | 	Suppressed: org.apache.spark.util.Utils$OriginalTryStackTraceException: Full stacktrace of original doTryWithCallerStacktrace caller
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaExceptions$.partitionOffsetChanged(KafkaExceptions.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$10(KafkaOffsetReader.scala:250)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.reportDataLoss(KafkaMicroBatchStream.scala:444)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$planInputPartitions$1$adapted(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.$anonfun$getOffsetRangesFromResolvedOffsets$9(KafkaOffsetReader.scala:250)
+spark-consumer  | 		at scala.collection.immutable.List.map(List.scala:236)
+spark-consumer  | 		at scala.collection.immutable.List.map(List.scala:79)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaOffsetReaderBase.getOffsetRangesFromResolvedOffsets(KafkaOffsetReader.scala:241)
+spark-consumer  | 		at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.planInputPartitions(KafkaMicroBatchStream.scala:220)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions$lzycompute(MicroBatchScanExec.scala:51)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputPartitions(MicroBatchScanExec.scala:50)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.$anonfun$partitions$3(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 		at scala.Option.getOrElse(Option.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions(DataSourceV2ScanExecBase.scala:67)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.partitions$(DataSourceV2ScanExecBase.scala:66)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.partitions(MicroBatchScanExec.scala:31)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD$lzycompute(MicroBatchScanExec.scala:56)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.inputRDD(MicroBatchScanExec.scala:55)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute(DataSourceV2ScanExecBase.scala:187)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.DataSourceV2ScanExecBase.doExecute$(DataSourceV2ScanExecBase.scala:185)
+spark-consumer  | 		at org.apache.spark.sql.execution.datasources.v2.MicroBatchScanExec.doExecute(MicroBatchScanExec.scala:31)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 		at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 		at org.apache.spark.sql.execution.ProjectExec.doExecute(basicPhysicalOperators.scala:98)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:201)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:260)
+spark-consumer  | 		at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:257)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:197)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:533)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:461)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:460)
+spark-consumer  | 		at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:504)
+spark-consumer  | 		at org.apache.spark.sql.execution.ProjectExec.inputRDDs(basicPhysicalOperators.scala:51)
+spark-consumer  | 		at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:763)
+spark-consumer  | 		at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeRDD$1(SparkPlan.scala:188)
+spark-consumer  | 		at scala.util.Try$.apply(Try.scala:217)
+spark-consumer  | 		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+spark-consumer  | 		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+spark-consumer  | 		... 44 more
+spark-consumer  | 26/06/25 18:43:34 INFO MicroBatchExecution: Async log purge executor pool for query [id = ff218d8e-0546-4fc0-bcaa-19be308a5732, runId = 0ed929b4-084d-45d4-ac4e-cbd8317a1d83] has been shutdown
+spark-consumer  | Traceback (most recent call last):
+spark-consumer  |   File "/jobs/scripts/consume_sales.py", line 41, in <module>
+spark-consumer  |     query.awaitTermination()
+spark-consumer  |   File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/streaming/query.py", line 225, in awaitTermination
+spark-consumer  |   File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/java_gateway.py", line 1362, in __call__
+spark-consumer  |   File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 269, in deco
+spark-consumer  | pyspark.errors.exceptions.captured.StreamingQueryException: [STREAM_FAILED] Query [id = ff218d8e-0546-4fc0-bcaa-19be308a5732, runId = 0ed929b4-084d-45d4-ac4e-cbd8317a1d83] terminated with exception: Some data may have been lost because they are not available in Kafka any more;
+spark-consumer  | either the data was aged out by Kafka or the topic may have been deleted before all the data in the
+spark-consumer  | topic was processed.
+spark-consumer  | If you don't want your streaming query to fail on such cases, set the source option failOnDataLoss to false.
+spark-consumer  | Reason: Partition sales_topic-0 offset was changed from 10293 to 9494.
+spark-consumer  | This could be either 1) a user error that the start offset is set beyond available offset when starting query, or 2) the kafka topic-partition is deleted and re-created. SQLSTATE: XXKST
+spark-consumer  | === Streaming Query ===
+spark-consumer  | Identifier: [id = ff218d8e-0546-4fc0-bcaa-19be308a5732, runId = 0ed929b4-084d-45d4-ac4e-cbd8317a1d83]
+spark-consumer  | Current Committed Offsets: {KafkaV2[Subscribe[sales_topic]]: {"sales_topic":{"0":10293}}}
+spark-consumer  | Current Available Offsets: {KafkaV2[Subscribe[sales_topic]]: {"sales_topic":{"0":9494}}}
+spark-consumer  | 
+spark-consumer  | Current State: ACTIVE
+spark-consumer  | Thread State: RUNNABLE
+spark-consumer  | 
+spark-consumer  | Logical Plan:
+spark-consumer  | ~WriteToMicroBatchDataSourceV1 FileSink[file:/jobs/output/sales_stream], ff218d8e-0546-4fc0-bcaa-19be308a5732, [path=/jobs/output/sales_stream, checkpointLocation=/jobs/checkpoints/sales_stream], Append
+spark-consumer  | +- ~Project [data#15.customer AS customer#16, data#15.quantity AS quantity#17]
+spark-consumer  |    +- ~Project [from_json(StructField(customer,StringType,true), StructField(quantity,IntegerType,true), json_string#14, Some(Etc/UTC), false) AS data#15]
+spark-consumer  |       +- ~Project [cast(value#8 as string) AS json_string#14]
+spark-consumer  |          +- ~StreamingDataSourceV2ScanRelation[key#7, value#8, topic#9, partition#10, offset#11L, timestamp#12, timestampType#13] KafkaTable
+spark-consumer  | 
+spark-consumer  | 26/06/25 18:43:34 INFO SparkContext: Invoking stop() from shutdown hook
+spark-consumer  | 26/06/25 18:43:34 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
+spark-consumer  | 26/06/25 18:43:34 INFO SparkUI: Stopped Spark web UI at http://spark-consumer:4040
+spark-consumer  | 26/06/25 18:43:34 INFO StandaloneSchedulerBackend: Shutting down all executors
+spark-consumer  | 26/06/25 18:43:34 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+spark-consumer  | 26/06/25 18:43:34 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+spark-consumer  | 26/06/25 18:43:34 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+spark-consumer  | 26/06/25 18:43:34 INFO MemoryStore: MemoryStore cleared
+spark-consumer  | 26/06/25 18:43:34 INFO BlockManager: BlockManager stopped
+spark-consumer  | 26/06/25 18:43:34 INFO BlockManagerMaster: BlockManagerMaster stopped
+spark-consumer  | 26/06/25 18:43:34 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+spark-consumer  | 26/06/25 18:43:34 INFO SparkContext: Successfully stopped SparkContext (Uptime: 21567 ms)

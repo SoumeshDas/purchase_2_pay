@@ -1,8 +1,7 @@
 from pyspark.sql import SparkSession
 
 spark = (
-    SparkSession.builder
-    .appName("SalesReader")
+    SparkSession.builder.appName("SalesReader")
     .master("spark://spark-master:7077")
     .getOrCreate()
 )

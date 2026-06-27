@@ -1,5 +1,4 @@
 import duckdb
-import os
 
 PROJECT_ROOT = "/jobs"
 
@@ -13,19 +12,21 @@ print("=" * 60)
 
 con = duckdb.connect(DB_PATH)
 
-con.execute("""
+con.execute(
+    """
 DROP TABLE IF EXISTS sales
-""")
+"""
+)
 
-con.execute(f"""
+con.execute(
+    f"""
 CREATE TABLE sales AS
 SELECT *
 FROM read_parquet('{PARQUET_PATH}')
-""")
+"""
+)
 
-rows = con.execute(
-    "SELECT COUNT(*) FROM sales"
-).fetchone()[0]
+rows = con.execute("SELECT COUNT(*) FROM sales").fetchone()[0]
 
 print(f"Rows Loaded : {rows}")
 

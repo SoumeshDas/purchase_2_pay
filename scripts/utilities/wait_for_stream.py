@@ -9,10 +9,7 @@ start = time.time()
 
 while True:
 
-    files = [
-        f for f in os.listdir(OUTPUT)
-        if f.startswith("part-")
-    ]
+    files = [f for f in os.listdir(OUTPUT) if f.startswith("part-")]
 
     if files:
         print("Output detected.")

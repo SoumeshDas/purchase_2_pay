@@ -2,11 +2,7 @@
 
 from pyspark.sql import SparkSession
 
-spark = (
-    SparkSession.builder
-    .appName("cluster-test")
-    .getOrCreate()
-)
+spark = SparkSession.builder.appName("cluster-test").getOrCreate()
 
 df = spark.range(10)
 

@@ -19,15 +19,15 @@ with DAG(
     default_args=default_args,
     tags=["kafka", "spark", "streaming"],
 ) as dag:
-    
+
     create_topic = BashOperator(
-        task_id = "create_topic",
-        bash_command = f"""docker run --rm \
+        task_id="create_topic",
+        bash_command=f"""docker run --rm \
         --network kafka-docker_default \
         -e KAFKA_SERVER=kafka:9092 \
         -v {PROJECT_ROOT}:/jobs \
         kafka-python-docker:1.0 \
-        python /jobs/scripts/utilities/create_sales_topic.py"""
+        python /jobs/scripts/utilities/create_sales_topic.py""",
     )
 
     produce_sales = BashOperator(
@@ -40,8 +40,7 @@ with DAG(
         kafka-python-docker:1.0 \
         # python /jobs/scripts/producer/produce_sales.py
         """,
-        execution_timeout=timedelta(minutes=5)
-
+        execution_timeout=timedelta(minutes=5),
     )
 
     wait_for_stream = BashOperator(
@@ -52,18 +51,17 @@ with DAG(
         -v {PROJECT_ROOT}:/jobs \
         kafka-python-docker:1.0 \
         python /jobs/scripts/utilities/wait_for_stream.py
-        """
+        """,
     )
 
     load_to_duckdb = BashOperator(
         task_id="load_to_duckdb",
-
         bash_command=f"""
         docker run --rm \
         -v {PROJECT_ROOT}:/jobs \
         soda-custom:latest \
         python /jobs/scripts/utilities/load_bronze_to_duckdb.py
-        """
+        """,
     )
 
     soda_scan = BashOperator(
@@ -73,7 +71,7 @@ with DAG(
         -v {PROJECT_ROOT}:/jobs \
         soda-custom:latest \
         python /jobs/scripts/quality/run_soda.py
-        """
+        """,
     )
 
     notify = BashOperator(
@@ -87,7 +85,7 @@ with DAG(
         -e TO_EMAIL=admin@omgananayaka.in \
         soda-custom:latest \
         python /jobs/scripts/utilities/send_mail.py
-        """
+        """,
     )
 
     validate_pipeline = BashOperator(
@@ -97,15 +95,15 @@ with DAG(
         -v {PROJECT_ROOT}:/jobs \
         soda-custom:latest \
         python /jobs/scripts/quality/validate_pipeline.py
-        """
+        """,
     )
 
     (
-    create_topic
-    >> produce_sales
-    >> wait_for_stream
-    >> load_to_duckdb
-    >> soda_scan
-    >> notify
-    >> validate_pipeline
+        create_topic
+        >> produce_sales
+        >> wait_for_stream
+        >> load_to_duckdb
+        >> soda_scan
+        >> notify
+        >> validate_pipeline
     )

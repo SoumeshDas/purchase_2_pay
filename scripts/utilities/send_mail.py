@@ -1,27 +1,26 @@
-
 import json
 import os
 import smtplib
 from email.message import EmailMessage
 from pathlib import Path
 
-REPORT_FILE="/jobs/output/quality_report.json"
+REPORT_FILE = "/jobs/output/quality_report.json"
 
-GMAIL_USER=os.getenv("GMAIL_USER")
-GMAIL_APP_PASSWORD=os.getenv("GMAIL_APP_PASSWORD")
+GMAIL_USER = os.getenv("GMAIL_USER")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 
-TO_EMAIL=os.getenv("TO_EMAIL","admin@omgananayaka.in")
+TO_EMAIL = os.getenv("TO_EMAIL", "admin@omgananayaka.in")
 
 if not Path(REPORT_FILE).exists():
     raise FileNotFoundError(f"{REPORT_FILE} not found")
 
 with open(REPORT_FILE) as f:
-    report=json.load(f)
+    report = json.load(f)
 
-status=report.get("status","UNKNOWN")
-subject=f"[{status}] Purchase2Pay Pipeline Report"
+status = report.get("status", "UNKNOWN")
+subject = f"[{status}] Purchase2Pay Pipeline Report"
 
-html=f"""
+html = f"""
 <html>
 <body style="font-family:Arial">
 <h2>Purchase2Pay Pipeline Report</h2>
@@ -41,30 +40,35 @@ html=f"""
 <tr><th>Check</th><th>Status</th><th>Actual</th></tr>
 """
 
-for c in report.get("checks",[]):
-    color="#ccffcc" if c["status"]=="PASSED" else "#ffcccc"
-    html += f"<tr bgcolor='{color}'><td>{c['name']}</td><td>{c['status']}</td><td>{c.get('actual','')}</td></tr>"
+for c in report.get("checks", []):
+    color = "#ccffcc" if c["status"] == "PASSED" else "#ffcccc"
+    html += (
+        f"<tr bgcolor='{color}'>"
+        f"<td>{c['name']}</td>"
+        f"<td>{c['status']}</td>"
+        f"<td>{c.get('actual', '')}</td>"
+        "</tr>"
+    )
 
 html += "</table></body></html>"
 
-msg=EmailMessage()
-msg["Subject"]=subject
-msg["From"]=GMAIL_USER
-msg["To"]=TO_EMAIL
+msg = EmailMessage()
+msg["Subject"] = subject
+msg["From"] = GMAIL_USER
+msg["To"] = TO_EMAIL
 msg.set_content("HTML capable mail client required.")
-msg.add_alternative(html,subtype="html")
+msg.add_alternative(html, subtype="html")
 
-log=report.get("log_file")
+log = report.get("log_file")
 if log and Path(log).exists():
-    with open(log,"rb") as f:
-        msg.add_attachment(f.read(),
-                           maintype="text",
-                           subtype="plain",
-                           filename=Path(log).name)
+    with open(log, "rb") as f:
+        msg.add_attachment(
+            f.read(), maintype="text", subtype="plain", filename=Path(log).name
+        )
 
-with smtplib.SMTP("smtp.gmail.com",587) as smtp:
+with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
     smtp.starttls()
-    smtp.login(GMAIL_USER,GMAIL_APP_PASSWORD)
+    smtp.login(GMAIL_USER, GMAIL_APP_PASSWORD)
     smtp.send_message(msg)
 
 print("Email sent successfully.")

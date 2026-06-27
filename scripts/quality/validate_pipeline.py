@@ -27,7 +27,7 @@ def main():
         with open(REPORT_FILE) as f:
             report = json.load(f)
     except Exception as e:
-        print(f"ERROR: Unable to read report")
+        print("ERROR: Unable to read report")
         print(e)
         sys.exit(1)
 
@@ -56,9 +56,7 @@ def main():
     # -------------------------------------------------
 
     failed_checks = [
-        check
-        for check in report.get("checks", [])
-        if check["status"] == "FAILED"
+        check for check in report.get("checks", []) if check["status"] == "FAILED"
     ]
 
     if failed_checks:
